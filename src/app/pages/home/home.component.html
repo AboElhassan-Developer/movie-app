@@ -1,0 +1,29 @@
+<div class="container">
+  <h2 class="mb-4 text-center">🎬 Now Playing</h2>
+
+  <div *ngIf="isLoading" class="text-center my-5">
+    <div class="spinner-border text-primary" role="status"></div>
+  </div>
+
+  <div class="row">
+    <div *ngFor="let movie of movies" class="col-md-3 mb-4">
+      <div class="card h-100 shadow-sm">
+        <img [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path" class="card-img-top" alt="{{ movie.title }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ movie.title }}</h5>
+          <p class="card-text">
+            <small class="text-muted">Release Date: {{ movie.release_date }}</small>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pagination Buttons -->
+  <div class="d-flex justify-content-center gap-3 mt-4">
+    <button class="btn btn-outline-primary" (click)="prevPage()" [disabled]="page === 1">⬅ Previous</button>
+    <span class="align-self-center">Page {{ page }}</span>
+    <button class="btn btn-outline-primary" (click)="nextPage()">Next ➡</button>
+  </div>
+</div>
+
