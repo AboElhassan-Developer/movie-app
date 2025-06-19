@@ -1,1 +1,36 @@
-<p>movie-card works!</p>
+<div class="card h-100 position-relative">
+  <!-- صورة الفيلم -->
+  <img
+    class="card-img-top"
+    [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
+    [alt]="movie.title"
+  />
+
+  <!-- زر القلب لإضافة/إزالة من المفضلة -->
+  <button
+    class="btn btn-light position-absolute top-0 end-0 m-2"
+    (click)="toggleWishlist()"
+    aria-label="Add to wishlist"
+  >
+  
+
+
+    <i
+      class="fa"
+      [ngClass]="{
+        'fa-heart': isInWishlist,
+        'fa-heart-o': !isInWishlist
+      }"
+      style="color: red; font-size: 1.5rem;"
+    ></i>
+  </button>
+
+  <!-- تفاصيل الفيلم -->
+  <div class="card-body">
+    <h5 class="card-title">{{ movie.title }}</h5>
+    <p class="card-text">
+      {{ movie.overview | slice: 0:100 }}...
+    </p>
+  </div>
+</div>
+
