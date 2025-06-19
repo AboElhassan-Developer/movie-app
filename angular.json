@@ -32,16 +32,16 @@
               }
             ],
             "styles": [
+              "node_modules/font-awesome/css/font-awesome.min.css",  
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.scss"
             ],
             "scripts": [
-
               "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
             ]
           },
           "configurations": {
-          "production": {
+            "production": {
               "budgets": [
                 {
                   "type": "initial",
@@ -95,7 +95,6 @@
               }
             ],
             "styles": [
-
               "src/styles.scss"
             ],
             "scripts": []
@@ -103,5 +102,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "b00bd911-2577-4675-93d4-56e4672cd578"
   }
 }
