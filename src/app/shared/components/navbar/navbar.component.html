@@ -1,1 +1,36 @@
-<p>navbar works!</p>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 fixed-top shadow">
+<a class="navbar-brand fw-bold text-white" routerLink="/">🎬 {{ translations[currentLang]?.brand }}</a>
+
+  <form class="d-flex mx-auto w-50" (ngSubmit)="onSearch(searchInput.value)">
+    <input
+      #searchInput
+      class="form-control me-2"
+      type="search"
+[placeholder]="translations[currentLang]?.searchPlaceholder"
+      aria-label="Search" />
+    <button class="btn btn-outline-light" type="submit">🔍</button>
+  </form>
+
+<div class="ms-auto d-flex align-items-center gap-3">
+    <a class="nav-link text-white position-relative me-3" routerLink="/wishlist">
+      <i class="fa fa-heart text-danger"></i>
+      <span class="badge bg-danger position-absolute top-0 start-100 translate-middle">
+        {{ wishlistCount }}
+      </span>
+        <span class="ms-1">{{ translations[currentLang]?.wishlist }}</span>
+
+    </a>
+
+    <div class="dropdown">
+  <button class="btn btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown">
+    🌐 {{ translations[currentLang]?.language }}
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item" (click)="changeLanguage('en')">{{ translations[currentLang]?.en }}</button></li>
+    <li><button class="dropdown-item" (click)="changeLanguage('ar')">{{ translations[currentLang]?.ar }}</button></li>
+    <li><button class="dropdown-item" (click)="changeLanguage('fr')">{{ translations[currentLang]?.fr }}</button></li>
+    <li><button class="dropdown-item" (click)="changeLanguage('zh')">{{ translations[currentLang]?.zh }}</button></li>
+  </ul>
+</div>
+  </div>
+</nav>

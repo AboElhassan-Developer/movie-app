@@ -8,10 +8,20 @@ export class LanguageService {
   private languageSubject = new BehaviorSubject<string>('en');
   language$ = this.languageSubject.asObservable();
 
+  constructor() {
+    const savedLang = localStorage.getItem('lang') || 'en';
+    this.setLanguage(savedLang); // Set initial language
+  }
+
   setLanguage(lang: string) {
+    localStorage.setItem('lang', lang);
     this.languageSubject.next(lang);
+
+    // Update HTML lang attribute
     document.documentElement.lang = lang;
-    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+
+    // Set RTL or LTR
+    document.body.dir = lang === 'ar' ? 'rtl' : 'ltr';
   }
 
   get currentLanguage(): string {

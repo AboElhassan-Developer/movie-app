@@ -1,1 +1,27 @@
-<p>wishlist works!</p>
+<div class="container">
+  <h2 class="mb-4 text-center">{{ translations[currentLang]?.title }}</h2>
+
+  <ng-container *ngIf="movies.length > 0; else emptyState">
+    <div class="row">
+      <div class="col-md-3 mb-4" *ngFor="let movie of movies">
+        <div class="position-relative">
+          <app-movie-card
+            [movie]="movie"
+            [translations]="{}"
+            currentLang="en">
+          </app-movie-card>
+
+          <button class="btn btn-sm btn-danger position-absolute top-0 start-0 m-2"
+                  (click)="remove(movie)">
+            <i class="fa fa-trash"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-template #emptyState>
+    <p class="text-center text-muted fs-5 mt-5">
+ {{ translations[currentLang]?.empty }}    </p>
+  </ng-template>
+</div>

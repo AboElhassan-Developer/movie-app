@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { LanguageService } from './language.service';
-import { switchMap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -17,34 +16,22 @@ export class MovieService {
   ) {}
 
   getNowPlaying(page: number = 1): Observable<any> {
-    return this.langService.language$.pipe(
-      switchMap(lang =>
-        this.http.get(`${this.baseUrl}/movie/now_playing?api_key=${this.apiKey}&language=${lang}&page=${page}`)
-      )
-    );
+    const lang = this.langService.currentLanguage;
+    return this.http.get(`${this.baseUrl}/movie/now_playing?api_key=${this.apiKey}&language=${lang}&page=${page}`);
   }
 
   getMovieDetails(id: number): Observable<any> {
-    return this.langService.language$.pipe(
-      switchMap(lang =>
-        this.http.get(`${this.baseUrl}/movie/${id}?api_key=${this.apiKey}&language=${lang}`)
-      )
-    );
+    const lang = this.langService.currentLanguage;
+    return this.http.get(`${this.baseUrl}/movie/${id}?api_key=${this.apiKey}&language=${lang}`);
   }
 
   getRecommendations(id: number): Observable<any> {
-    return this.langService.language$.pipe(
-      switchMap(lang =>
-        this.http.get(`${this.baseUrl}/movie/${id}/recommendations?api_key=${this.apiKey}&language=${lang}`)
-      )
-    );
+    const lang = this.langService.currentLanguage;
+    return this.http.get(`${this.baseUrl}/movie/${id}/recommendations?api_key=${this.apiKey}&language=${lang}`);
   }
 
   searchMovies(query: string): Observable<any> {
-    return this.langService.language$.pipe(
-      switchMap(lang =>
-        this.http.get(`${this.baseUrl}/search/movie?api_key=${this.apiKey}&language=${lang}&query=${query}`)
-      )
-    );
+    const lang = this.langService.currentLanguage;
+    return this.http.get(`${this.baseUrl}/search/movie?api_key=${this.apiKey}&language=${lang}&query=${query}`);
   }
 }

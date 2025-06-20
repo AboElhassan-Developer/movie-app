@@ -1,1 +1,18 @@
-<p>search-results works!</p>
+<div class="container">
+  <h2 class="mb-4 text-center">{{ translations[currentLang].title }}</h2>
+
+  <div *ngIf="isLoading" class="text-center my-5">
+    <div class="spinner-border text-primary" role="status"></div>
+  </div>
+
+  <div *ngIf="!isLoading && movies.length === 0" class="text-center text-muted">
+    <p>{{ translations[currentLang].noResults }}</p>
+  </div>
+
+  <div class="row">
+    <div *ngFor="let movie of movies" class="col-md-3 mb-4">
+      <app-movie-card [movie]="movie" [translations]="translations" [currentLang]="currentLang"></app-movie-card>
+    </div>
+  </div>
+</div>
+

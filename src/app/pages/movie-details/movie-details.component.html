@@ -1,1 +1,30 @@
-<p>movie-details works!</p>
+
+<div class="container" *ngIf="!isLoading">
+<div class="row mb-4">
+  <div class="col mb-4">
+      <img class="img-fluid rounded shadow" [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path" alt="{{ movie.title }}">
+  </div>
+   <div class="col-md-8">
+      <h2>{{ movie.title }}</h2>
+    <p><strong>{{ translations[currentLang]?.releaseDate }}</strong> {{ movie.release_date }}</p>
+<p><strong>{{ translations[currentLang]?.overview }}</strong> {{ movie.overview }}</p>
+<p><strong>{{ translations[currentLang]?.rating }}</strong> {{ movie.vote_average }}/10</p>
+
+</div>
+</div>
+  <hr>
+<h4>{{ translations[currentLang]?.recommended || '🎯 Recommended Movies' }}</h4>
+<div class="row mt-3">
+  <div *ngFor="let movie of recommendations" class="col-md-3 mb-4">
+    <app-movie-card
+      [movie]="movie"
+      [translations]="translations"
+      [currentLang]="currentLang">
+    </app-movie-card>
+  </div>
+</div>
+
+</div>
+<div *ngIf="isLoading" class="text-center my-5">
+  <div class="spinner-border text-primary" role="status"></div>
+</div>
