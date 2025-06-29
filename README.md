@@ -1,59 +1,67 @@
-# MovieApp
+# 🎬 Movie App
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.6.
+A modern and responsive Angular application for browsing, searching, and managing a wishlist of movies. Built using **The Movie Database (TMDB) API**, the app supports multi-language translation and provides users with a seamless movie exploration experience.
 
-## Development server
+## 🌍 Live Demo
 
-To start a local development server, run:
+🔗 [Live Site on Netlify/Vercel](https://my-movie-app-2025.netlify.app/)  
+🔗 [GitHub Repository](https://github.com/AboElhassan-Developer/movie-app)
+
+---
+
+## 📸 Screenshots
+
+![Screenshot (348)](https://github.com/user-attachments/assets/2b41d2df-b296-493c-8656-3263a1e948fa)
+
+
+---
+
+## 🚀 Features
+
+- 🔥 **Now Playing Movies**  
+  View the latest trending movies from TMDB.
+
+- 🔍 **Search Movies**  
+  Search for any movie title and display results instantly.
+
+- 🧾 **Movie Details Page**  
+  View full details about any movie including overview, genres, rating, and recommendations.
+
+- 💖 **Wishlist Management**  
+  Add or remove movies from a persistent wishlist (saved using `localStorage`).
+
+- 🌐 **Multi-language Support**  
+  Supports English, Arabic, French, and Chinese with dynamic content switching and direction (RTL/LTR).
+
+- 📱 **Responsive Design**  
+  Optimized for desktop and mobile view using Bootstrap.
+
+---
+
+## 🧰 Tech Stack
+
+- **Framework:** Angular 17 (with standalone components)
+- **Language:** TypeScript
+- **Styling:** SCSS, Bootstrap 5
+- **API:** [The Movie Database (TMDB)](https://www.themoviedb.org/)
+- **State Management:** RxJS BehaviorSubject
+- **Routing:** Angular Router
+- **Storage:** LocalStorage for wishlist
+- **Deployment:** Vercel / Netlify
+
+---
+
+## 🧑‍💻 Installation & Setup
 
 ```bash
+# Clone the repository
+git clone https://github.com/AboElhassan-Developer/movie-app.git
+
+# Navigate to project directory
+cd movie-app
+
+# Install dependencies
+npm install
+
+# Run the app locally
 ng serve
-```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
